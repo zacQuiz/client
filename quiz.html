@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
+    <script type="text/javascript" src="./assets/main.js">
+    </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>tes</title>
+    <style>
+      body{
+        background: url('http://downloads.bbc.co.uk/tv/scienceclub/wallpapers/sc_wall03_physics2_1920x1080.jpg');
+      }
+    </style>
+  </head>
+  <body>
+    <h3 class="col-md-3 offset-md-5 point" style="color: white;">My Point : 0</h3>
+    <div class="card text-white bg-secondary mb-3" style="max-width: 40rem; margin: auto;">
+      <div class="card-header">Question</div>
+      <div class="card-body">
+        <h4 class="card-title">Round 1</h4>
+        <p class="card-text"></p>
+        <fieldset class="form-group">
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+              True
+            </label>
+          </div>
+          <div class="form-check">
+          <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="false">
+              False
+            </label>
+          </div>
+        </fieldset>
+        <button type="button" onclick="answer()" class="btn btn-info">Answer!</button>
+        <button type="button" class="btn btn-danger">Give Up!</button>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function(){
+        fetchQuiz('https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=boolean')
+        // axios.get('https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=boolean')
+        // .then((response) => {
+        //   let questions = []
+        //   let correctAnswer = []
+        //   console.log(response);
+        //   response.data.results.forEach((result) => {
+        //     console.log(result);
+        //     questions.push(result.question)
+        //     correctAnswer.push(result.correct_answer)
+        //   })
+        //
+        // }).catch((err) => {
+        //   console.error(err);
+        // })
+      })
+    </script>
+  </body>
+</html>
