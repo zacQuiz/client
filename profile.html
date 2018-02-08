@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
+    <script type="text/javascript" src="./assets/main.js"></script>
+    <title>Profile</title>
+  </head>
+  <style>
+  img {
+    vertical-align: middle;
+    border-style: none;
+    margin: auto;
+    margin-top: 10px;
+  }
+  </style>
+  <body>
+    <div class="row container">
+      <div class="card mb-3 col-md-3">
+        <h3 class="card-header">Welcome User</h3>
+        <img style="height: 100px; width: 100px; border-radius:50%;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image">
+        <div class="card-body">
+          <p class="card-text">Name: User</p>
+          <p>Email: user@example.com</p>
+          <p>Points: 100</p>
+          <button style="width:100px;" onclick="showFormQuest()" type="button" class="btn btn-info">Play Quiz</button> <br> <br>
+          <button style="width:100px;" type="button" class="btn btn-primary">Logout</button>
+        </div>
+      </div>
+      <div class="formQuiz col-md-7 offset-md-1" style="visibility: hidden">
+        <label for="exampleSelect1">Category</label>
+        <select class="form-control" id="exampleSelect1">
+          <option value="18">Computer</option>
+          <option value="11">Movie</option>
+          <option value="12">Music</option>
+          <option value="23">History</option>
+          <option value="31">Anime / Manga</option>
+        </select>
+        <br>
+        <label for="exampleSelect1">Level</label>
+        <select class="form-control" id="exampleSelect2">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <br>
+        <button style="width:100px;" type="button" onclick="getUrlApi()" class="btn btn-info">Play!!</button>
+      </div>
+
+    </div>
+  </body>
+</html>

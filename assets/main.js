@@ -2,6 +2,7 @@ let questions = []
 let correctAnswer = []
 let counter = 0
 let points = 0
+let url = null
 function fetchQuiz(url) {
   axios.get(url)
   .then((response) => {
@@ -44,4 +45,18 @@ function answer(){
     counter += 1
     getQuestion(counter)
   }
+}
+
+function showFormQuest() {
+  $('.formQuiz')[0].style.visibility = 'visible'
+}
+
+function getUrlApi() {
+  // https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=boolean
+  let category = $('#exampleSelect1').val()
+  let level = $('#exampleSelect2').val()
+  url = `https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${level}&type=boolean`
+  console.log(url);
+  localStorage.setItem('url', url)
+  window.location = '/quiz.html'
 }

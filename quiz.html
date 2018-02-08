@@ -43,7 +43,8 @@
 
     <script>
       $(document).ready(function(){
-        fetchQuiz('https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=boolean')
+        url = localStorage.getItem('url')
+        fetchQuiz(url)
         // axios.get('https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=boolean')
         // .then((response) => {
         //   let questions = []
