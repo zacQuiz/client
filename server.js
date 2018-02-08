@@ -69,7 +69,7 @@ function testAPI() {
     }
   }).then(response => {
     console.log(response, 'ini dari router')
-    window.location = '/quiz.html '
+    window.location = '/profile.html '
     // data ini yang belum diapa apain !!
     // window.location = ('')
     // If request is good...
@@ -86,6 +86,6 @@ function share() {
     quote:"Selamat anda telah Menang",
     href:"https://hacktiv8.com",
   },function(res){
-    
+
   })
 }
