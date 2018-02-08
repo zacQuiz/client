@@ -91,6 +91,6 @@ function share() {
     quote:"Selamat anda telah Menang",
     href:"https://hacktiv8.com",
   },function(res){
-    
+
   })
 }
