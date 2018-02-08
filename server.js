@@ -69,7 +69,7 @@ function testAPI() {
     }
   }).then(response => {
     console.log(response, 'ini dari router')
-    
+    window.location = '/quiz.html '
     // data ini yang belum diapa apain !!
     // window.location = ('')
     // If request is good...
