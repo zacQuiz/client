@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login Page</title>
+<meta charset="UTF-8">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<script src="server.js"></script>
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<button type="button" name="button" onclick="logout()">Logout</button>
+
+
+<div id="status">
+</div>
+
+
+</body>
+</html>
