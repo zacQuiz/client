@@ -3,7 +3,8 @@
 function statusChangeCallback(response) {
   console.log('statusChangeCallback');
   console.log(response);
-
+  localStorage.setItem('accessToken', response.authResponse.accessToken)
+  localStorage.setItem('UserId', response.authResponse.userID)
   if (response.status === 'connected') {
 
     testAPI();
@@ -61,14 +62,22 @@ window.fbAsyncInit = function() {
 
 function testAPI() {
   console.log('Welcome!  Fetching your information.... ');
-  FB.api('/me',{
-    fields :['name','email', 'gender', 'picture', ]
-  }, function(response) {
-    console.log('LU DAPET INI WOI LIAT ', response)
-    console.log('Successful login for: ' + response.name);
-    document.getElementById('status').innerHTML =
-      'Thanks for logging in, ' + response.name + '!';
-  });
+  axios.get('http://localhost:3000/users', {
+    headers: {
+      accessToken: localStorage.getItem('accessToken')
+      // UserId     : localStorage.getItem()
+    }
+  }).then(response => {
+    console.log(response, 'ini dari router')
+    window.location = '/quiz.html '
+    // data ini yang belum diapa apain !!
+    // window.location = ('')
+    // If request is good...
+    // console.log(response,'ini then')
+  })
+    .catch((error) => {
+      console.log('error 3 ' + error);
+    });
 }
 function share() {
   FB.ui({
