@@ -1,13 +1,12 @@
 
 
 function statusChangeCallback(response) {
-  console.log('statusChangeCallback');
-  console.log(response);
   localStorage.setItem('accessToken', response.authResponse.accessToken)
   localStorage.setItem('UserId', response.authResponse.userID)
-  if (response.status === 'connected') {
-
+  if (response.status == 'connected') {
+    if( window.location.pathname !=='/profile.html'){
     testAPI();
+    }
   } else {
 
     document.getElementById('status').innerHTML = 'Please log ' +
@@ -23,6 +22,8 @@ function checkLoginState() {
 
 function logout(){
   FB.logout(function(response){
+    localStorage=null
+    window.location="index.html"
   console.log(response)
   //window.location = '/google.com'
   })
@@ -68,12 +69,16 @@ function testAPI() {
       // UserId     : localStorage.getItem()
     }
   }).then(response => {
+    // console.log(response.data,'sadasd');
     console.log(response, 'ini dari router')
-    window.location = '/quiz.html '
+    localStorage.setItem('name', response.data.name)
+    localStorage.setItem('email', response.data.email)
+    localStorage.setItem('foto', response.data.picture.data.url)
+    window.location = '/profile.html '
     // data ini yang belum diapa apain !!
     // window.location = ('')
     // If request is good...
-    // console.log(response,'ini then')
+    // console.log(,'ini then')
   })
     .catch((error) => {
       console.log('error 3 ' + error);
