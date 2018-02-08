@@ -25,6 +25,7 @@ function getQuestion(idx){
 function answer(){
   let finish = questions.length-1
   console.log(counter, finish);
+  localStorage.setItem('point', points)
   if(counter >= finish) {
     swal(`your total score ${points}`)
     return ''
