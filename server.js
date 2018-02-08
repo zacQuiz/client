@@ -70,3 +70,13 @@ function testAPI() {
       'Thanks for logging in, ' + response.name + '!';
   });
 }
+function share() {
+  FB.ui({
+    method: 'share',
+    mobile_iframe:true,
+    quote:"Selamat anda telah Menang",
+    href:"https://hacktiv8.com",
+  },function(res){
+    
+  })
+}
