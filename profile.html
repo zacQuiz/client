@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
+    <script type="text/javascript" src="./assets/main.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="server.js"></script>
+    <title>Profile</title>
+  </head>
+  <style>
+  img {
+    vertical-align: middle;
+    border-style: none;
+    margin: auto;
+    margin-top: 10px;
+  }
+  </style>
+  <body background="https://media.giphy.com/media/raBbE1fizfZGE/giphy.gif">
+   
+    <script>
+      function voice(){
+        responsiveVoice.speak("hello world", "UK English Male");
+      }
+      
+      </script>
+    <div class="row container">
+      <div class="card mb-3 col-md-3">
+        <h3 class="card-header">Welcome User</h3>
+        <div id="foto"></div>
+        <div class="card-body">
+          <p class="card-text">Name: <i id="name"></i></p>
+          <p>Email: <i id="email"></i> </p>
+          <p>Points: <i id="point"></i></p>
+          <button style="width:100px;" onclick="showFormQuest()" type="button" class="btn btn-info">Play Quiz</button> <br> <br>
+          <button style="width:100px;" type="button" class="btn btn-primary" onclick="share()">Share</button><br> <br>
+          <button style="width:100px;" type="button" class="btn btn-primary" onclick="logout()">Logout</button>
+        </div>
+      </div>
+      <div class="formQuiz col-md-7 offset-md-1" style="visibility: hidden">
+        <label for="exampleSelect1">Category</label>
+        <select class="form-control" id="exampleSelect1">
+          <option value="18">Computer</option>
+          <option value="11">Movie</option>
+          <option value="12">Music</option>
+          <option value="23">History</option>
+          <option value="31">Anime / Manga</option>
+        </select>
+        <br>
+        <label for="exampleSelect1">Level</label>
+        <select class="form-control" id="exampleSelect2">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <br>
+        <button style="width:100px;" type="button" onclick="getUrlApi()" class="btn btn-info">Play!!</button>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function(){
+        getScore()
+      })
+      $('#name').html(`${localStorage.name}`)
+      $('#email').html(`${localStorage.email}`)
+      $('#point').html(`${localStorage.point||0}`)
+      $('#foto').html(`<img style="height: 100px; width: 100px; border-radius:50%;" src="${localStorage.foto}" alt="Card image">`)
+      //console.log('LOCAK',localStorage);
+    </script>
+  </body>
+</html>
