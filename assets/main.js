@@ -31,12 +31,8 @@ function speak(){
 function answer(){
   let finish = questions.length-1
   console.log(counter, finish);
-  localStorage.setItem('point', points)
   if(counter >= finish) {
-    swal(`your total score ${points}`)
-    saveScore(score)
-    window.location='profile.html'
-    return ''
+    giveUp()
   }
   if($('#optionsRadios2')[0].checked == true){
     userAnswer = 'False'
@@ -72,6 +68,7 @@ function answer(){
     }
   }
 }
+
 
 // function answer(){
 //  let userAnswer = ''
@@ -139,12 +136,15 @@ function getUrlApi() {
 }
 
 function saveScore(score){
-  axios.post('http://localhost:3000/user/score', {
+  axios.post('http://localhost:3000/users/score', {
     score: score,
     userId: localStorage.getItem('UserId')
+  },{
+    headers:{accesstoken:localStorage.getItem('accessToken')}
   })
   .then(data => {
     console.log(data)
+    getScore()
   })
   .catch(err => {
     console.log(err)
@@ -155,12 +155,20 @@ function getScore(){
   let UserId = localStorage.getItem('UserId')
   console.log('Masuk', UserId)
   console.log(localStorage.getItem('accessToken'))
-  axios.get(`http://localhost:3000/user/score/${UserId}`, {
+  axios.get(`http://localhost:3000/users/scores/${UserId}`, {
     headers: {accesstoken: localStorage.getItem('accessToken')}
   })
   .then(dataScore => {
-    console.log('INI DATA SCORE', dataScore)
-    points = dataScore.score
+      points=0
+      console.log('INI DATA SCORE', dataScore)
+      dataScore.data.forEach(e=>{
+        console.log(e.userId===UserId,e.userId,UserId)
+        if(e.userId._id==UserId){
+          points+=e.score
+        }
+      })
+    console.log(points)
+    localStorage.setItem('point',points)
   })
   .catch(err => {
     console.log(err)

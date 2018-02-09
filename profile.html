@@ -60,11 +60,13 @@
       </div>
     </div>
     <script>
+      $(document).ready(function(){
+        getScore()
+      })
       $('#name').html(`${localStorage.name}`)
       $('#email').html(`${localStorage.email}`)
       $('#point').html(`${localStorage.point||0}`)
       $('#foto').html(`<img style="height: 100px; width: 100px; border-radius:50%;" src="${localStorage.foto}" alt="Card image">`)
-      getScore()
       //console.log('LOCAK',localStorage);
     </script>
   </body>
