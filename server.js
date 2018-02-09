@@ -25,6 +25,7 @@ function checkLoginState() {
 function logout(){
   FB.logout(function(response){
     localStorage=null
+    localStorage.clear()
     window.location="index.html"
   console.log(response)
   //window.location = '/google.com'
