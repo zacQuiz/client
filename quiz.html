@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
     <script type="text/javascript" src="./assets/main.js">
@@ -17,7 +18,7 @@
   </head>
   <body>
     <h3 class="col-md-3 offset-md-5 point" style="color: white;">My Point : 0</h3>
-    <div class="card text-white bg-secondary mb-3" style="max-width: 40rem; margin: auto;">
+    <div onclick="speak()" class="card text-white bg-secondary mb-3" style="max-width: 40rem; margin: auto;">
       <div class="card-header">Question</div>
       <div class="card-body">
         <h4 class="card-title">Round 1</h4>

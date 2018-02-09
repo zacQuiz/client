@@ -22,6 +22,11 @@ function getQuestion(idx){
   $('.card-text').html(`${questions[idx]}`)
 }
 
+function speak(){
+  
+  responsiveVoice.speak(questions[counter])
+}
+
 function answer(){
   let userAnswer = ''
   let finish = questions.length-1
