@@ -40,7 +40,7 @@ function logout(){
 
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : '167057163935805',
+    appId      : '1801532450140524',
     cookie     : true,
     xfbml      : true,
     version    : 'v2.8'
