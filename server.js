@@ -14,22 +14,25 @@ function statusChangeCallback(response) {
   }
 }
 
+
 function checkLoginState() {
-  FB.getLoginStatus(function(response) {
+  console.log('loginstate');
+  FB.login(function(response) {
     statusChangeCallback(response);
-  });
+  },{scope:'public_profile,email'});
 }
 
 function logout(){
   FB.logout(function(response){
     localStorage=null
+    localStorage.clear()
     window.location="index.html"
   console.log(response)
   //window.location = '/google.com'
   })
 }
 
-// let logout_event = function(response) {
+// let logout_event = functifunctionNameon(response) {
 //   console.log("logout_event");
 //   console.log(response.status);
 //   console.log(response);
@@ -74,6 +77,7 @@ function testAPI() {
     localStorage.setItem('name', response.data.name)
     localStorage.setItem('email', response.data.email)
     localStorage.setItem('foto', response.data.picture.data.url)
+    localStorage.setItem('userId', response.data._id)
     window.location = '/profile.html '
     // data ini yang belum diapa apain !!
     // window.location = ('')
@@ -88,7 +92,7 @@ function share() {
   FB.ui({
     method: 'share',
     mobile_iframe:true,
-    quote:"Selamat anda telah Menang",
+    quote:`Selamat anda mendapatkan point sebesar ${localStorage.point}`,
     href:"https://hacktiv8.com",
   },function(res){
 
