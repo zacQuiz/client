@@ -38,7 +38,7 @@ justify-content: center;
 width: 100%;
 min-height: 100%;
 padding: 20px;
-background: rgba(4, 40, 68, 0.85);
+/* background: rgba(4, 40, 68, 0.85); */
 }
 
 .login {
@@ -46,7 +46,7 @@ border-radius: 2px 2px 5px 5px;
 padding: 10px 20px 20px 20px;normalize
 width: 90%;
 max-width: 320px;
-background: #ffffff;
+background-color:rgba(100, 100, 100, 0.5);
 position: relative;
 padding-bottom: 80px;
 box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
@@ -177,16 +177,12 @@ text-decoration: none;
 
   <div class="wrapper">
   <div class="login">
-    <!-- <p class="title">Log in</p>
-    <input type="text" placeholder="Username" autofocus/>
-    <i class="fa fa-user"></i>
-    <input type="password" placeholder="Password" />
-    <i class="fa fa-key"></i>
-    <a href="#">Forgot your password?</a> -->
-    <button onclick="checkLoginState()">
+    <p class="title" style="text-align:center;color:#ffffff">Welcome to ZacQuiz</p>
+    <img onclick="checkLoginState()" style="width:100%;cursor:move;" src="data:image/png;base64,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" alt="" >
+    <!-- <button onclick="checkLoginState()"> -->
       <!-- <fb:login scope="public_profile,email" onlogin="checkLoginState()">
       </fb:login> -->
-    </button>
+    <!-- </button> -->
   </div>
 
   </p>

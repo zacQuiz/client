@@ -29,7 +29,7 @@ function answer(){
   localStorage.setItem('point', points)
   if(counter >= finish) {
     swal(`your total score ${points}`)
-    saveScore(score)
+    saveScore(points)
     window.location='profile.html'
     return ''
   }
@@ -133,9 +133,9 @@ function getUrlApi() {
   //   userAnswe
 }
 
-function saveScore(score){
+function saveScore(points){
   axios.post('http://localhost:3000/user/score', {
-    score: score,
+    score: points,
     userId: localStorage.getItem('UserId')
   })
   .then(data => {
