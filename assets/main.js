@@ -23,28 +23,40 @@ function getQuestion(idx){
 }
 
 function answer(){
-  let finish = questions.length-1
-  console.log(counter, finish);
-  localStorage.setItem('point', points)
-  if(counter >= finish) {
-    swal(`your total score ${points}`)
-    return ''
-  }
   let userAnswer = ''
+  let finish = questions.length-1
   if($('#optionsRadios2')[0].checked == true){
     userAnswer = 'False'
   } else {
     userAnswer = 'True'
   }
-  if(correctAnswer[counter] == userAnswer){
-    swal("Good job!", "You get 10 points!", "success");
-    counter += 1
-    points += 10
-    getQuestion(counter)
+  console.log(counter, finish);
+  if(counter >= finish) {
+    if(correctAnswer[counter] == userAnswer){
+      swal("Good job!", "You get 10 points!", "success");
+      swal(`your total score ${points}`)
+      .then((value) => {
+        swal(`The returned value is: ${value}`);
+      });
+    } else {
+      swal("Ouch!", "You get 0 points!", "error")
+      swal(`your total score ${points}`)
+      .then((value) => {
+        swal(`The returned value is: ${value}`);
+      });
+
+    }
   } else {
-    swal("Ouch!", "You get 0 points!", "error");
-    counter += 1
-    getQuestion(counter)
+    if(correctAnswer[counter] == userAnswer){
+      swal("Good job!", "You get 10 points!", "success");
+      counter ++
+      points += 10
+      getQuestion(counter)
+    } else {
+      swal("Ouch!", "You get 0 points!", "error");
+      counter ++
+      getQuestion(counter)
+    }
   }
 }
 
