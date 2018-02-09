@@ -18,27 +18,27 @@
   </head>
   <body>
     <h3 class="col-md-3 offset-md-5 point" style="color: white;">My Point : 0</h3>
-    <div  class="card text-white bg-secondary mb-3" style="max-width: 40rem; margin: auto;">
+  <div class="card text-white bg-secondary mb-3" style="max-width: 40rem; margin: auto;">
+   
+    <div class="card-header">Question</div>
+    <div class="card-body">
       <div onclick="speak()">
-      <div class="card-header">Question</div>
-      <div class="card-body">
-        <h4 class="card-title">Round 1</h4>
-        <p class="card-text"></p>
-        <fieldset class="form-group">
-          <div class="form-check">
-            <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-              True
-            </label>
-          </div>
-          <div class="form-check">
+      <h4 class="card-title">Round 1</h4>
+    </div>
+      <p class="card-text"></p>
+      <fieldset class="form-group">
+        <div class="form-check">
           <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="false">
-              False
-            </label>
-          </div>
-        </fieldset>
+            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked=""> True
+          </label>
         </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="false"> False
+          </label>
+        </div>
+      </fieldset>
+    
         <button type="button" onclick="answer()" class="btn btn-info">Answer!</button>
         <button type="button" class="btn btn-danger" onclick="giveUp()">Give Up!</button>
       </div>

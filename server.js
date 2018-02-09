@@ -1,8 +1,9 @@
 
 
 function statusChangeCallback(response) {
+
   localStorage.setItem('accessToken', response.authResponse.accessToken)
-  localStorage.setItem('UserId', response.authResponse.userID)
+  // localStorage.setItem('UserId', response.authResponse.userID)
   if (response.status == 'connected') {
     if( window.location.pathname !=='/profile.html'){
     testAPI();
@@ -66,18 +67,18 @@ window.fbAsyncInit = function() {
 
 function testAPI() {
   console.log('Welcome!  Fetching your information.... ');
-  axios.get('http://localhost:3000/users', {
+  console.log(localStorage.getItem('accessToken'),'ini testAPI')
+  axios.post('http://localhost:3000/users',{} ,{
     headers: {
       accessToken: localStorage.getItem('accessToken')
       // UserId     : localStorage.getItem()
     }
   }).then(response => {
-    // console.log(response.data,'sadasd');
-    console.log(response, 'ini dari router')
-    localStorage.setItem('name', response.data.name)
-    localStorage.setItem('email', response.data.email)
-    localStorage.setItem('foto', response.data.picture.data.url)
-    localStorage.setItem('userId', response.data._id)
+    console.log(response,'ini response after login')
+    localStorage.setItem('name', response.data.user[0].name)
+    localStorage.setItem('email', response.data.user[0].email)
+    localStorage.setItem('foto', response.data.user[0].photoProfile)
+    localStorage.setItem('UserId', response.data.user[0]._id)
     window.location = '/profile.html '
     // data ini yang belum diapa apain !!
     // window.location = ('')
