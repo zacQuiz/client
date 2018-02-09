@@ -14,10 +14,12 @@ function statusChangeCallback(response) {
   }
 }
 
+
 function checkLoginState() {
-  FB.getLoginStatus(function(response) {
+  console.log('loginstate');
+  FB.login(function(response) {
     statusChangeCallback(response);
-  });
+  },{scope:'public_profile,email'});
 }
 
 function logout(){
@@ -29,7 +31,7 @@ function logout(){
   })
 }
 
-// let logout_event = function(response) {
+// let logout_event = functifunctionNameon(response) {
 //   console.log("logout_event");
 //   console.log(response.status);
 //   console.log(response);
