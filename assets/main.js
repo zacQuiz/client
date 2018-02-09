@@ -28,6 +28,8 @@ function answer(){
   localStorage.setItem('point', points)
   if(counter >= finish) {
     swal(`your total score ${points}`)
+    saveScore(score)
+    window.location='profile.html'
     return ''
   }
   let userAnswer = ''
@@ -60,4 +62,41 @@ function getUrlApi() {
   console.log(url);
   localStorage.setItem('url', url)
   window.location = '/quiz.html'
+}
+
+function saveScore(score){
+  axios.post('http://localhost:3000/user/score', {
+    score: score,
+    userId: localStorage.getItem('userId')
+  })
+  .then(data => {
+    console.log(data)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
+
+function getScore(){
+  let userId = localStorage.getItem('userId')
+  axios.get(`http://localhost:3000/user/score/${userId}`)
+  .then(dataScore => {
+    console.log(dataScore)
+    points = dataScore.score
+  })
+  .catch(err => {
+    console.log(err)
+    points = points
+  })
+}
+
+function giveUp(){
+  saveScore(points)
+  confirm('Mau Kemana Mas?')
+  if(true){
+  window.location = ('/profile.html')
+  } else {
+  console.log(`test`)
+  window.location = ''
+  }
 }
