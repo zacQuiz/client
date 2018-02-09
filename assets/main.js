@@ -3,6 +3,7 @@ let correctAnswer = []
 let counter = 0
 let points = 0
 let url = null
+let userAnswer = ''
 function fetchQuiz(url) {
   axios.get(url)
   .then((response) => {
@@ -32,21 +33,38 @@ function answer(){
     window.location='profile.html'
     return ''
   }
-  let userAnswer = ''
   if($('#optionsRadios2')[0].checked == true){
     userAnswer = 'False'
   } else {
     userAnswer = 'True'
   }
-  if(correctAnswer[counter] == userAnswer){
-    swal("Good job!", "You get 10 points!", "success");
-    counter += 1
-    points += 10
-    getQuestion(counter)
+  console.log(counter, finish);
+  if(counter >= finish) {
+    if(correctAnswer[counter] == userAnswer){
+      swal("Good job!", "You get 10 points!", "success");
+      swal(`your total score ${points}`)
+      .then((value) => {
+        swal(`The returned value is: ${value}`);
+      });
+    } else {
+      swal("Ouch!", "You get 0 points!", "error")
+      swal(`your total score ${points}`)
+      .then((value) => {
+        swal(`The returned value is: ${value}`);
+      });
+
+    }
   } else {
-    swal("Ouch!", "You get 0 points!", "error");
-    counter += 1
-    getQuestion(counter)
+    if(correctAnswer[counter] == userAnswer){
+      swal("Good job!", "You get 10 points!", "success");
+      counter ++
+      points += 10
+      getQuestion(counter)
+    } else {
+      swal("Ouch!", "You get 0 points!", "error");
+      counter ++
+      getQuestion(counter)
+    }
   }
 }
 
@@ -91,12 +109,9 @@ function getScore(){
 }
 
 function giveUp(){
-  saveScore(points)
-  confirm('Mau Kemana Mas?')
-  if(true){
-  window.location = ('/profile.html')
-  } else {
-  console.log(`test`)
-  window.location = ''
+    saveScore(points)
+    confirm('Jangan pergi dong beb?')
+    if(true){
+    window.location = ('/profile.html')
   }
 }
